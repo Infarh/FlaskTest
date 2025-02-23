@@ -1,8 +1,10 @@
 import hashlib
 import base64
 from flask import Flask, render_template, request, abort
+from flasgger import Swagger
 
 app = Flask(__name__)
+swagger = Swagger(app)
 
 @app.route('/')
 def home():
@@ -18,6 +20,23 @@ def user_profile(user_id):
 
 @app.route('/md5', methods=['GET', 'POST'])
 def md5_hash():
+    """
+    Вычисление MD5 хеша строки.
+    ---
+    parameters:
+      - name: str
+        in: query
+        type: string
+        required: true
+        description: Строка для вычисления MD5 хеша
+    responses:
+      200:
+        description: MD5 хеш строки
+        schema:
+          type: string
+      400:
+        description: Пожалуйста, предоставьте строку для вычисления MD5 хеша.
+    """
     if request.method == 'POST':
         input_str = request.form.get('str', '')
     else:
