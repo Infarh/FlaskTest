@@ -1,3 +1,4 @@
+# https://proglib.io/p/samouchitel-po-python-dlya-nachinayushchih-chast-23-osnovy-veb-razrabotki-na-flask-2023-06-27
 from flask import Flask, render_template
 
 app = Flask(__name__)
