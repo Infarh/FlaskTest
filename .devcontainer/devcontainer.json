@@ -15,5 +15,5 @@
             }
         }
     },
-    "postCreateCommand": "sudo apt update && sudo apt upgrade -y && pip install --upgrade pip && pip install -r requirements.txt"
+    "postCreateCommand": "sudo DEBIAN_FRONTEND=noninteractive apt update && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y && pip install --upgrade pip && pip install -r requirements.txt"
 }
